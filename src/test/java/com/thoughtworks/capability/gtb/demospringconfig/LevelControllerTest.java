@@ -18,9 +18,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class LevelControllerTest {
 
-    @SpringBootTest
+    @SpringBootTest(properties = { "levelNumber=0" })
     @Nested
-    @ActiveProfiles("0")
     @AutoConfigureMockMvc
     class when_level_number_is_0 {
         @Autowired
@@ -33,9 +32,8 @@ class LevelControllerTest {
                     .andExpect(content().string("basic"));
         }
     }
-    @SpringBootTest
+    @SpringBootTest(properties = { "levelNumber=1" })
     @Nested
-    @ActiveProfiles("1")
     @AutoConfigureMockMvc
     class when_level_number_is_1 {
         @Autowired
@@ -49,9 +47,8 @@ class LevelControllerTest {
         }
     }
 
-    @SpringBootTest
+    @SpringBootTest(properties = { "levelNumber=2" })
     @Nested
-    @ActiveProfiles("2")
     @AutoConfigureMockMvc
     class when_level_number_is_2 {
         @Autowired
